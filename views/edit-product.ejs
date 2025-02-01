@@ -1,0 +1,31 @@
+<%- include('header'); -%>
+<div class="container">
+    <% if(message != ''){%>
+        <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+
+        <% if(product.length > 0) { %>
+        <form class="add-player-form" action="" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="">Select Category</label>
+                    
+                    <select name="category_name">
+                        <!-- <option value="" selected disabled>Select Category</option> -->
+                        <% product.forEach((items,index) => {%>
+                            <option value="<%=items.category_id%>"><%=items.category_name%></option>
+                    </select>
+                    
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="">Enter Product Name</label>
+                    <input type="text" name="product_name" value="<%= items.product_name %>" placeholder="Enter Product Name" required>
+                </div>
+                <% }) %>
+                <button type="submit" class="btn btn-primary float-left"> Update Product</button>
+            </div>
+        </form>
+        <% } %>
+</div>
+</body>
+</html>

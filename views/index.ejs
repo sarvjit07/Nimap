@@ -1,0 +1,28 @@
+<%- include('header.ejs'); -%>
+    <div class="table-wrapper">
+        <% if (category.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Category Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% category.forEach((player, index) => { %>
+                        <tr>
+                            <th scope="row"><%= player.category_id %></th>            
+                            <td><%= player.category_name %></td>
+                            <td>
+                                <a href="/edit/<%= player.category_id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/delete/<%= player.category_id %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+</body>
+</html>

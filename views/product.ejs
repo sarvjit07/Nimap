@@ -1,0 +1,34 @@
+<%- include('header'); -%>
+<div class="container">
+    <div class="table-wrapper">
+        <% if(product.length > 0){%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Category Id</th>
+                        <th scope="col">Category Name</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% product.forEach((items,index) => {%>
+                        <tr>
+                            <th scope="row"><%= items.product_id %></th>            
+                            <td><%= items.product_name %></td>
+                            <td><%= items.category_id %></td>
+                            <td><%= items.category_name %></td>
+                            <td>
+                                <a href="/edit_product/<%= items.product_id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/delete_product/<%= items.product_id %>" class="btn btn-sm btn-danger">Delete</a>
+
+                            </td>
+                        </tr>
+                        <%})%>
+                </tbody>
+            </table>
+        <%}%>
+        
+    </div>
+</div>
